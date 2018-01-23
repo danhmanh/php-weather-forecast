@@ -1,0 +1,21 @@
+body {
+    font-family: 'Pacifico', cursive;
+    background-image: url("images.jpg") ;
+}
+tr .success {
+
+}
+
+body > div > table > tbody > tr.success {
+    /*color: aqua;*/
+    font-size: large;
+}
+tr{
+    padding: 20px;
+    border: black 3px solid;
+}
+
+h1 {
+    font-size: 50px;
+}
+
