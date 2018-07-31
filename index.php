@@ -47,7 +47,7 @@ function get_update_time($html) {
     $dom = new Document() ;
     $dom->load($html) ;
 
-    $time_row = $dom->find("div[class=thoiTietBox]")[0]->find("tr[class=tb-top]")[0] ;
+    $time_row = $dom->find("tr[class=tbTp]")[0] ;
     $time_now = $time_row->find("span[class=cap-nhat]")[0]->text();
 
     echo "<tr class = 'info'>
@@ -68,15 +68,15 @@ function get_weather_detail($html) {
     $dom = new Document() ;
     $dom->load($html) ;
 
-    $rows = $dom->find("div[class=thoiTietBox]")[0]->find("tr") ;
+    $rows = $dom->find("tr") ;
 
 
     foreach ($rows as $row) {
         echo "<tr class=\"active\" >" ;
-        if($row->has("td[class=thoitiet-cell]")) {
+        if($row->has("td[class=ttCel]")) {
 
 
-            if($row->has("td[class=thoitiet-cell]")) {
+            if($row->has("td[class=ttCel]")) {
                 $location = $row->find("h3")[0]->text()  ;
                 $location = substr($location , 13 , strlen($location)) ;
                 echo "<td><h3>$location</h3></td>" ;
@@ -91,7 +91,7 @@ function get_weather_detail($html) {
 //                var_dump($des) ;
                 $temp_now = $row->find("span[class=nhietdo-big]")[0]->text() ;
                 $temp_now = str_replace("oC" , "&#176C" , $temp_now  ) ;
-                
+
                 $imgnow = $row->find("table")[0]->find("img")[0]->attr("src") ;
 //                var_dump($imgnow) ;
                 echo "<td>
